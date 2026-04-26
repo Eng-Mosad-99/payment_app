@@ -12,7 +12,7 @@ class ThankYouCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        color: const Color(0xffD9D9D9),
+        color: const Color(0xffEDEDED),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       child: Padding(
