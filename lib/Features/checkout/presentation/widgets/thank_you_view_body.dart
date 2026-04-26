@@ -32,12 +32,7 @@ class ThankYouViewBody extends StatelessWidget {
             right: -20,
             child: CircleAvatar(backgroundColor: Colors.white),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: -50,
-            child: CustomCheckIcon(),
-          ),
+          Positioned(left: 0, right: 0, top: -50, child: CustomCheckIcon()),
         ],
       ),
     );

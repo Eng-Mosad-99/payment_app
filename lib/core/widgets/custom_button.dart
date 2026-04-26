@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payment_app/core/utils/app_styles.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    this.onTap,
-    this.buttonText,
-  });
+  const CustomButton({super.key, this.onTap, this.buttonText});
   final void Function()? onTap;
   final String? buttonText;
 
@@ -23,7 +19,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-          buttonText?? 'Complete Payment',
+            buttonText ?? 'Complete Payment',
             style: AppStyles.style22,
           ),
         ),

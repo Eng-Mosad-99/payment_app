@@ -3,19 +3,12 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/utils/app_styles.dart';
 
-AppBar buildAppBar({ String? title}) {
+AppBar buildAppBar({String? title}) {
   return AppBar(
-    leading: Center(
-      child: SvgPicture.asset(
-        'images/arrow_back.svg',
-      ),
-    ),
+    leading: Center(child: SvgPicture.asset('images/arrow_back.svg')),
     centerTitle: true,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    title: Text(
-      title ?? '',
-      style: AppStyles.style25,
-    ),
+    title: Text(title ?? '', style: AppStyles.style25),
   );
 }

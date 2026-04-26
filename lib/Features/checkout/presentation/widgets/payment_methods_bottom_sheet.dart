@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_button.dart';
@@ -18,7 +16,7 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           SizedBox(height: 16),
           PaymentMethodsListView(),
           SizedBox(height: 32),
-          CustomButton(buttonText: 'Continue',),
+          CustomButton(buttonText: 'Continue'),
         ],
       ),
     );

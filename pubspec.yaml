@@ -38,6 +38,7 @@ dependencies:
   flutter_credit_card: ^4.1.0
   font_awesome_flutter: ^11.0.0
   flutter_stripe: ^12.6.0
+  dio: ^5.9.2
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
@@ -13,7 +12,7 @@ class PaymentItemInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(title, style: AppStyles.style18),
-       
+
         Text(value, style: AppStyles.styleBold18),
       ],
     );

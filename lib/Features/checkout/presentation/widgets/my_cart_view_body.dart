@@ -36,7 +36,7 @@ class MyCartViewBody extends StatelessWidget {
               // );
               showModalBottomSheet(
                 context: context,
-                shape:  RoundedRectangleBorder(
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
                 builder: (context) => const PaymentMethodsBottomSheet(),

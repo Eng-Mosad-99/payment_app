@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class CustomDashedLined extends StatelessWidget {
-  const CustomDashedLined({
-    super.key,
-  });
+  const CustomDashedLined({super.key});
 
   @override
   Widget build(BuildContext context) {
