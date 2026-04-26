@@ -1,8 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:payment_app/Features/checkout/presentation/widgets/payment_methods_list_view.dart';
 
 import '../../../../core/widgets/custom_button.dart';
 import '../views/payment_details.dart';
+import 'payment_methods_bottom_sheet.dart';
 import 'order_info_item.dart';
 import 'total_price.dart';
 
@@ -28,9 +30,16 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(height: 16),
           CustomButton(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PaymentDetails()),
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const PaymentDetails()),
+              // );
+              showModalBottomSheet(
+                context: context,
+                shape:  RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                builder: (context) => const PaymentMethodsBottomSheet(),
               );
             },
           ),
