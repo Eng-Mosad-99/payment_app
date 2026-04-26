@@ -12,7 +12,7 @@ class ThankYouCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 50 + 16 , left: 22, right: 22,),
+        padding: const EdgeInsets.only(top: 50 + 16, left: 22, right: 22),
         child: Column(
           children: <Widget>[
             Text(
@@ -42,22 +42,16 @@ class ThankYouCard extends StatelessWidget {
 
 class PaymentItemInfo extends StatelessWidget {
   const PaymentItemInfo({super.key, required this.title, required this.value});
-final String title;
-final String value;
+  final String title;
+  final String value;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-          Text(
-            title,
-            style: AppStyles.style18,
-          ),
-          const Spacer(),
-          Text(
-            value,
-            style: AppStyles.styleBold18,
-          ), 
+        Text(title, style: AppStyles.style18),
+        const Spacer(),
+        Text(value, style: AppStyles.styleBold18),
       ],
     );
   }
