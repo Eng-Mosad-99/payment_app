@@ -29,7 +29,7 @@ class ThankYouCard extends StatelessWidget {
               textAlign: TextAlign.center,
               style: AppStyles.style20,
             ),
-            const SizedBox(height: 42),
+            const SizedBox(height: 35),
             const PaymentItemInfo(title: 'Date', value: '01/24/2023'),
             const SizedBox(height: 20),
 
@@ -37,7 +37,7 @@ class ThankYouCard extends StatelessWidget {
             const SizedBox(height: 20),
 
             const PaymentItemInfo(title: 'To', value: 'Sam Louis'),
-            Divider(height: 60, thickness: 2),
+            Divider(height: 40, thickness: 2),
             TotalPrice(title: 'Total', value: '\$50.97'),
             SizedBox(height: 30),
             CreditCardInfoWidget(),
@@ -73,7 +73,7 @@ class ThankYouCard extends StatelessWidget {
             ),
             SizedBox(
               height:
-                  ((MediaQuery.sizeOf(context).height * 0.25 + 20) / 2) - 29,
+                  ((MediaQuery.sizeOf(context).height * 0.20 + 20 - 20) / 2) - 29,
             ),
           ],
         ),

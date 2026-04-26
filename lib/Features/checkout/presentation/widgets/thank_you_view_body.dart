@@ -18,16 +18,17 @@ class ThankYouViewBody extends StatelessWidget {
           Positioned(
             left: 20 + 8,
             right: 20 + 8,
-            bottom: MediaQuery.sizeOf(context).height * 0.25 + 20,
+            bottom: MediaQuery.sizeOf(context).height * 0.20 + 20,
             child: CustomDashedLined(),
           ),
           Positioned(
-            bottom: MediaQuery.sizeOf(context).height * 0.25,
+            bottom: MediaQuery.sizeOf(context).height * 0.20 + 20 - 20,
             left: -20,
             child: CircleAvatar(backgroundColor: Colors.white),
           ),
           Positioned(
-            bottom: MediaQuery.sizeOf(context).height * 0.25,
+            bottom: MediaQuery.sizeOf(context).height * 0.20 + 20 - 20,
+
             right: -20,
             child: CircleAvatar(backgroundColor: Colors.white),
           ),
