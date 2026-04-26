@@ -48,4 +48,21 @@ class StripeService {
       print('Unforeseen error: $e');
     }
   }
+
+  //! For make payment we will create a function that will call the above three functions in order
+  Future<void> makePayment({required PaymentIntentInputsModel inputs}) async {
+    try {
+      // 1. Create a payment intent on the server
+      final paymentIntentModel = await createPaymentIntent(inputs: inputs);
+
+      // 2. Initialize the payment sheet
+      await initPaymentSheet(
+        paymentIntentClientSecret: paymentIntentModel.clientSecret!,
+      );
+      // 3. Display the payment sheet
+      await displayPaymentSheet();
+    } catch (e) {
+      print('Error in makePayment: $e');
+    }
+  }
 }
