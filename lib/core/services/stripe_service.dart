@@ -5,9 +5,7 @@ import 'package:payment_app/core/utils/api_keys.dart';
 import 'package:payment_app/core/utils/api_service.dart';
 
 class StripeService {
-  final ApiService apiService;
-
-  StripeService({required this.apiService});
+  final ApiService apiService = ApiService();
 
   //* 1 ====> PaymentIntentObject  create payment intent (currency, amount)
   Future<PaymentIntentModel> createPaymentIntent({
