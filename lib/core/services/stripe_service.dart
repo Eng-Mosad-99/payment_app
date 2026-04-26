@@ -39,4 +39,13 @@ class StripeService {
   }
 
   //* 3 ====> present payment sheet()
+  Future<void> displayPaymentSheet() async {
+    try {
+      await Stripe.instance.presentPaymentSheet();
+    } on StripeException catch (e) {
+      print('Error from Stripe: ${e.error.localizedMessage}');
+    } catch (e) {
+      print('Unforeseen error: $e');
+    }
+  }
 }
