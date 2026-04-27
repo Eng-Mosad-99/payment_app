@@ -10,7 +10,7 @@ import 'package:payment_app/core/utils/api_service.dart';
 class StripeService {
   final ApiService apiService = ApiService();
 
-  //* customer ====> CustomerModel   createCustomer
+  //* customer ====> CustomerModel   createCustomer in stripe when i register and save the customerId in local cache to use it in the future when i want to make payment
   Future<CustomerModel> createCustomer() async {
     final response = await apiService.post(
       url: 'https://api.stripe.com/v1/customers',
