@@ -38,18 +38,12 @@ class StripeService {
 
   //* 3 ====> present payment sheet()
   Future<void> displayPaymentSheet() async {
-    try {
-      await Stripe.instance.presentPaymentSheet();
-    } on StripeException catch (e) {
-      print('Error from Stripe: ${e.error.localizedMessage}');
-    } catch (e) {
-      print('Unforeseen error: $e');
-    }
+    await Stripe.instance.presentPaymentSheet();
   }
 
   //! For make payment we will create a function that will call the above three functions in order
   Future<void> makePayment({required PaymentIntentInputsModel inputs}) async {
-    try {
+   
       // 1. Create a payment intent on the server
       final paymentIntentModel = await createPaymentIntent(inputs: inputs);
 
@@ -59,8 +53,6 @@ class StripeService {
       );
       // 3. Display the payment sheet
       await displayPaymentSheet();
-    } catch (e) {
-      print('Error in makePayment: $e');
-    }
+    
   }
 }
