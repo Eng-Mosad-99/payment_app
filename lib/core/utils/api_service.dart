@@ -9,7 +9,6 @@ class ApiService {
     required Map<String, dynamic> data,
     required String token,
     bool isEphemeralKey = false,
-    
   }) async {
     try {
       final response = await _dio.post(
