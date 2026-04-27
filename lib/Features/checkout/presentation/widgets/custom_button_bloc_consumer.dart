@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_app/Features/checkout/data/models/payment_intent_inputs_model.dart';
 import 'package:payment_app/Features/checkout/presentation/manager/payment_cubit.dart';
 import 'package:payment_app/Features/checkout/presentation/views/thank_you_view.dart';
 import 'package:payment_app/core/widgets/custom_button.dart';
@@ -11,7 +12,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
       listener: (context, state) {
-        if (state is PaymentSuccess ) {
+        if (state is PaymentSuccess) {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => ThankYouView()),
           );
@@ -25,6 +26,13 @@ class CustomButtonBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return CustomButton(
           buttonText: 'Continue',
+          onTap: () {
+            PaymentIntentInputsModel paymentIntentInputsModel =
+                PaymentIntentInputsModel(amount: "100", currency: 'USD');
+            BlocProvider.of<PaymentCubit>(
+              context,
+            ).makePayment(paymentInputs: paymentIntentInputsModel);
+          },
           isLoading: state is PaymentLoading ? true : false,
         );
       },

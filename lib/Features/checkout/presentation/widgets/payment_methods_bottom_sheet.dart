@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/Features/checkout/presentation/widgets/custom_button_bloc_consumer.dart';
-
-import '../../../../core/widgets/custom_button.dart';
 import 'payment_methods_list_view.dart';
 
 class PaymentMethodsBottomSheet extends StatelessWidget {
