@@ -90,7 +90,7 @@ class PaymentIntentModel {
       object: json['object'] as String?,
       amount: json['amount'] as int?,
       amountCapturable: json['amount_capturable'] as int?,
-     
+
       amountReceived: json['amount_received'] as int?,
       application: json['application'] as dynamic,
       applicationFeeAmount: json['application_fee_amount'] as dynamic,
@@ -111,7 +111,7 @@ class PaymentIntentModel {
       lastPaymentError: json['last_payment_error'] as dynamic,
       latestCharge: json['latest_charge'] as dynamic,
       livemode: json['livemode'] as bool?,
-     
+
       nextAction: json['next_action'] as dynamic,
       onBehalfOf: json['on_behalf_of'] as dynamic,
       paymentMethod: json['payment_method'] as dynamic,

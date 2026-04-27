@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:payment_app/core/utils/api_keys.dart';
 
 class ApiService {
   final Dio _dio = Dio();
@@ -7,7 +8,8 @@ class ApiService {
     required String url,
     required Map<String, dynamic> data,
     required String token,
-    String? contentType,
+    bool isEphemeralKey = false,
+    
   }) async {
     try {
       final response = await _dio.post(
@@ -15,7 +17,10 @@ class ApiService {
         data: data,
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
-          headers: {'Authorization': 'Bearer $token'},
+          headers: {
+            'Authorization': 'Bearer $token',
+            if (isEphemeralKey) 'Stripe-Version': ApiKeys.stripeVersion,
+          },
         ),
       );
       return response;

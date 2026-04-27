@@ -27,9 +27,14 @@ class CustomButtonBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return CustomButton(
           buttonText: 'Continue',
-          onTap: () {
+          onTap: () async {
+            // final customerId = await getCustomerId() ?? "";
             PaymentIntentInputsModel paymentIntentInputsModel =
-                PaymentIntentInputsModel(amount: "100", currency: 'USD');
+                PaymentIntentInputsModel(
+                  amount: "100",
+                  currency: 'USD',
+                  customerId: 'cus_UPf0UBcpbucLHE',
+                );
             BlocProvider.of<PaymentCubit>(
               context,
             ).makePayment(paymentInputs: paymentIntentInputsModel);

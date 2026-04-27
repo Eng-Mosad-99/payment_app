@@ -12,7 +12,7 @@ class CheckoutRepoImpl extends CheckoutRepo {
     required PaymentIntentInputsModel inputs,
   }) async {
     try {
-      await stripeService.makePayment(inputs: inputs);
+      await stripeService.makePayment(paymentIntentInputsModel: inputs);
       return Right(null);
     } catch (e) {
       print(e);
