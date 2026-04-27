@@ -11,6 +11,7 @@ import 'package:payment_app/core/widgets/custom_button.dart';
 import '../../data/models/amount_model/amount_model.dart';
 import '../../data/models/amount_model/details.dart';
 import '../../data/models/item_list_model/item.dart';
+import '../../data/models/payment_intent_inputs_model.dart';
 
 class CustomButtonBlocConsumer extends StatelessWidget {
   const CustomButtonBlocConsumer({super.key});
@@ -32,24 +33,27 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        final methodIndex = context.read<PaymentCubit>().index;
         return CustomButton(
           buttonText: 'Continue',
           onTap: () async {
-            //! Stripe Payment
-            // PaymentIntentInputsModel paymentIntentInputsModel =
-            //     PaymentIntentInputsModel(
-            //       amount: "100",
-            //       currency: 'USD',
-            //       customerId: 'cus_UPf0UBcpbucLHE',
-            //     );
-            // BlocProvider.of<PaymentCubit>(
-            //   context,
-            // ).makePayment(paymentInputs: paymentIntentInputsModel);
-
-            //! PayPal Payment
-            ({AmountModel amountModel, ItemListModel itemsListModel})
-            transactionData = getTransactionsData();
-            executePaypalPayment(context, transactionData);
+            if (methodIndex == 0) {
+              //! Stripe Payment
+              PaymentIntentInputsModel paymentIntentInputsModel =
+                  PaymentIntentInputsModel(
+                    amount: "100",
+                    currency: 'USD',
+                    customerId: 'cus_UPf0UBcpbucLHE',
+                  );
+              BlocProvider.of<PaymentCubit>(
+                context,
+              ).makePayment(paymentInputs: paymentIntentInputsModel);
+            } else if (methodIndex == 1) {
+              //! PayPal Payment
+              ({AmountModel amountModel, ItemListModel itemsListModel})
+              transactionData = getTransactionsData();
+              executePaypalPayment(context, transactionData);
+            }
           },
           isLoading: state is PaymentLoading ? true : false,
         );

@@ -20,6 +20,11 @@ class PaymentCubit extends Cubit<PaymentState> {
       (success) => emit(PaymentSuccess()),
     );
   }
+int index = 0;
+ void changeMethod(int index) {
+     log('Selected Payment Method Index: $index');
+  emit(PaymentMethodChanged(selectedIndex: index));
+  }
 
   @override
   void onChange(Change<PaymentState> change) {
