@@ -5,24 +5,24 @@ import 'package:meta/meta.dart';
 import 'package:payment_app/Features/checkout/data/models/payment_intent_inputs_model.dart';
 import 'package:payment_app/Features/checkout/repos/checkout_repo.dart';
 
-part 'checkout_state.dart';
+part 'payment_state.dart';
 
-class CheckoutCubit extends Cubit<CheckoutState> {
-  CheckoutCubit({required this.checkoutRepo}) : super(CheckoutInitial());
+class PaymentCubit extends Cubit<PaymentState> {
+  PaymentCubit({required this.checkoutRepo}) : super(PaymentInitial());
   final CheckoutRepo checkoutRepo;
 
   void makePayment({required PaymentIntentInputsModel paymentInputs}) async {
-    emit(CheckoutLoading());
+    emit(PaymentLoading());
 
     var result = await checkoutRepo.makePayment(inputs: paymentInputs);
     result.fold(
-      (failure) => emit(CheckoutFailure(errorMessage: failure.errorMessage)),
-      (success) => emit(CheckoutSuccess()),
+      (failure) => emit(PaymentFailure(errorMessage: failure.errorMessage)),
+      (success) => emit(PaymentSuccess()),
     );
   }
 
   @override
-  void onChange(Change<CheckoutState> change) {
+  void onChange(Change<PaymentState> change) {
     log(change.toString());
     super.onChange(change);
   }
